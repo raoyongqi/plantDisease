@@ -30,6 +30,8 @@ for filename in os.listdir(folder_path):
                 duration = data["data"]["result"][i]["duration"]
                 video_id = data["data"]["result"][i]["id"]  # 添加 id 字段
                 arcurl = data["data"]["result"][i]["arcurl"]  # 添加 arcurl 字段
+                aid = data["data"]["result"][i]["aid"]  # 添加 arcurl 字段
+                bvid = data["data"]["result"][i]["bvid"]  # 添加 arcurl 字段
 
                 # 如果标题包含HTML标签，可以使用BeautifulSoup移除HTML标签
                 soup = BeautifulSoup(title, "html.parser")
@@ -41,6 +43,8 @@ for filename in os.listdir(folder_path):
                 # 将处理后的数据存储到字典中
                 video_data = {
                     'id': video_id,         # 添加 id 字段
+                    'aid': aid,
+                    'bvid': bvid,
                     'arcurl': arcurl,       # 添加 arcurl 字段
                     'title': clean_title,   # 处理后的标题
                     'play': play,
@@ -48,7 +52,7 @@ for filename in os.listdir(folder_path):
                     'video_review': video_review,
                     'tag': tag,
                     'favorites': favorites,
-                    'duration': duration
+                    'duration': duration,
                 }
 
                 # 将字典添加到结果列表中
